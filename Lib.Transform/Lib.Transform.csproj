@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/rzmoz/lib.transform.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>@rzmoz 2019</Copyright>
-    <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>    
+    <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNet.Basics" Version="10.0.0-beta.5.0" />
