@@ -15,9 +15,9 @@
     <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>    
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNet.Basics" Version="10.0.0-beta.4.8" />
+    <PackageReference Include="DotNet.Basics" Version="10.0.0-beta.5.0" />
     <PackageReference Include="DotNet.Basics.Cli" Version="10.0.0-beta.3.4" />
-    <PackageReference Include="Manatee.Json" Version="11.0.0" />
+    <PackageReference Include="Manatee.Json" Version="11.0.2" />
     <PackageReference Include="Microsoft.Web.Xdt" Version="3.0.0" />
   </ItemGroup>
 </Project>
