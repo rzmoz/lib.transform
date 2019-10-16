@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Authors>rzmoz</Authors>
+    <Product>Lib.Transform</Product>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>transform</ToolCommandName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/rzmoz/lib.transform</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rzmoz/lib.transform.git</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>@rzmoz 2019</Copyright>
+    <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>    
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNet.Basics" Version="10.0.0-beta.4.8" />
+    <PackageReference Include="DotNet.Basics.Cli" Version="10.0.0-beta.3.4" />
+    <PackageReference Include="Manatee.Json" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Web.Xdt" Version="3.0.0" />
+  </ItemGroup>
+</Project>
