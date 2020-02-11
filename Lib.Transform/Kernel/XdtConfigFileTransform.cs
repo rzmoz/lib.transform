@@ -4,11 +4,11 @@ using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 using Microsoft.Web.XmlTransform;
 
-namespace Lib.Transform
+namespace Lib.Transform.Kernel
 {
     public class XdtConfigFileTransform : ConfigFileTransform
     {
-        public XdtConfigFileTransform(ILogDispatcher log) : base(log)
+        public XdtConfigFileTransform(ILogger log) : base(log)
         { }
 
         public override string ConfigFileExtension { get; } = ".config";

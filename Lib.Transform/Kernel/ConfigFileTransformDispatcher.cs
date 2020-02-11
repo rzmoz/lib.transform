@@ -8,16 +8,16 @@ using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform
+namespace Lib.Transform.Kernel
 {
     public class ConfigFileTransformDispatcher
     {
-        private readonly ILogDispatcher _log;
+        private readonly ILogger _log;
         private readonly IReadOnlyList<ConfigFileTransform> _transforms;
 
-        public ConfigFileTransformDispatcher(ILogDispatcher log)
+        public ConfigFileTransformDispatcher(ILogger log)
         {
-            _log = log ?? LogDispatcher.NullLogger;
+            _log = log ?? new NullLogger();
             _transforms = new List<ConfigFileTransform>
             {
                 new XdtConfigFileTransform(log),

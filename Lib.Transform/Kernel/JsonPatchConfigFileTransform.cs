@@ -8,11 +8,11 @@ using Manatee.Json.Patch;
 using Manatee.Json.Serialization;
 
 
-namespace Lib.Transform
+namespace Lib.Transform.Kernel
 {
     public class JsonPatchConfigFileTransform : ConfigFileTransform
     {
-        public JsonPatchConfigFileTransform(ILogDispatcher log) : base(log)
+        public JsonPatchConfigFileTransform(ILogger log) : base(log)
         { }
 
         public override string ConfigFileExtension { get; } = ".json";

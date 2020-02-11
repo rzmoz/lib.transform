@@ -3,7 +3,7 @@ using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform
+namespace Lib.Transform.Kernel
 {
     public class TransformOperation
     {
@@ -18,7 +18,7 @@ namespace Lib.Transform
         public FilePath ConfigFile { get; }
         public ConfigFileTransform ConfigTransform { get; }
 
-        public bool AssertFilesExist(ILogDispatcher log)
+        public bool AssertFilesExist(ILogger log)
         {
             var allExists = TransformFile.Exists();
             if (allExists == false)
@@ -31,7 +31,7 @@ namespace Lib.Transform
             return allExists;
         }
 
-        public TransformResult Transform(ILogDispatcher log)
+        public TransformResult Transform(ILogger log)
         {
             var result = new TransformResult
             {

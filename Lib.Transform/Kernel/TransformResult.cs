@@ -3,7 +3,7 @@ using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform
+namespace Lib.Transform.Kernel
 {
     public class TransformResult
     {

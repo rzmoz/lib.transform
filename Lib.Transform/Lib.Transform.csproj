@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Authors>rzmoz</Authors>
     <Product>Lib.Transform</Product>
@@ -15,9 +15,8 @@
     <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNet.Basics" Version="10.0.0-beta.5.0" />
-    <PackageReference Include="DotNet.Basics.Cli" Version="10.0.0-beta.3.4" />
-    <PackageReference Include="Manatee.Json" Version="11.0.2" />
+    <PackageReference Include="DotNet.Basics" Version="10.4.6" />
+    <PackageReference Include="Manatee.Json" Version="12.2.0" />
     <PackageReference Include="Microsoft.Web.Xdt" Version="3.0.0" />
   </ItemGroup>
 </Project>
