@@ -1,1 +1,1 @@
-Cmdlets for applying JsonPatch to json and Xdt to xml
+Transforms config files (.xml + .json) using xdt and jsonpatch
