@@ -1,1 +1,1 @@
-robocopy ".\.releaseArtifacts\Lib.Transform" "%homepath%\Documents\PowerShell\Modules\Lib.Transform" /NP
+robocopy ".\.releaseArtifacts\Lib.Transform" "%homepath%\Documents\PowerShell\Modules\Lib.Transform" /MIR /NP
