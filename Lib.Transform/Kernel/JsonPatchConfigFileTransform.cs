@@ -17,38 +17,43 @@ namespace Lib.Transform.Kernel
 
         public override string ConfigFileExtension { get; } = ".json";
         public override string TransformFileExtension { get; } = ".jsonpatch";
-        public override bool Transform(FilePath transformFile, FilePath targetFile)
+
+        public string Transform(string sourceJsonPatch, string targetJson)
         {
             var serializer = new JsonSerializer();
 
-            var rawPatchJson = transformFile.ReadAllText();
-            var rawConfigDoc = targetFile.ReadAllText();
+            //arrange
+            var patchJsonValue = JsonValue.Parse(sourceJsonPatch);
+            var jsonPatch = serializer.Deserialize<JsonPatch>(patchJsonValue);
 
+            var targetJsonValue = JsonValue.Parse(targetJson);
+            //act
+            var result = jsonPatch.TryApply(targetJsonValue);
+            if (result.Success)
+                return targetJsonValue.GetIndentedString();
+
+            var errorMessage = new StringBuilder(7);
+            errorMessage.AppendLine($"{result.Error.TrimEnd('.')}");
+            errorMessage.AppendLine($"Source json BEFORE PATCH:".Highlight());
+            errorMessage.AppendLine(targetJson);
+            errorMessage.AppendLine($"PATCH:".Highlight());
+            errorMessage.AppendLine(sourceJsonPatch);
+            errorMessage.AppendLine($"Json when PATCH ERROR occured:".Highlight());
+            errorMessage.AppendLine(targetJsonValue.GetIndentedString().Replace("\n", "\r\n"));
+            Log.Error(errorMessage.ToString());
+            return null;
+        }
+
+        public override bool Transform(FilePath transformFile, FilePath targetFile)
+        {
             try
             {
-                //arrange
-                var patchJsonValue = JsonValue.Parse(rawPatchJson);
-                var jsonPatch = serializer.Deserialize<JsonPatch>(patchJsonValue);
+                var rawPatchJson = transformFile.ReadAllText();
+                var rawConfigDoc = targetFile.ReadAllText();
 
-                var configJsonValue = JsonValue.Parse(rawConfigDoc);
-                //act
-                var result = jsonPatch.TryApply(configJsonValue);
-                if (result.Success)
-                {
-                    targetFile.WriteAllText(configJsonValue.GetIndentedString());
-                    return true;
-                }
-
-                var errorMessage = new StringBuilder(7);
-                errorMessage.AppendLine($"{result.Error.TrimEnd('.')} in {targetFile.FullName().Highlight()}");
-                errorMessage.AppendLine($"Source json BEFORE PATCH:".Highlight());
-                errorMessage.AppendLine(rawConfigDoc);
-                errorMessage.AppendLine($"PATCH:".Highlight());
-                errorMessage.AppendLine(rawPatchJson);
-                errorMessage.AppendLine($"Json when PATCH ERROR occured:".Highlight());
-                errorMessage.AppendLine(configJsonValue.GetIndentedString().Replace("\n", "\r\n"));
-                Log.Error(errorMessage.ToString());
-                return false;
+                var updatedJson = Transform(rawPatchJson, rawConfigDoc);
+                targetFile.WriteAllText(updatedJson);
+                return true;
             }
             catch (IOException e)
             {

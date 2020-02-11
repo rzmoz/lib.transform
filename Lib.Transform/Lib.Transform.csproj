@@ -2,21 +2,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <Authors>rzmoz</Authors>
-    <Product>Lib.Transform</Product>
-    <PackAsTool>true</PackAsTool>
-    <ToolCommandName>transform</ToolCommandName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/rzmoz/lib.transform</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rzmoz/lib.transform.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>@rzmoz 2019</Copyright>
+    <Copyright>@rzmoz 2020</Copyright>
     <Description>Does XDT and JsonPatch multi level transformation in a single operation.</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DotNet.Basics" Version="10.4.6" />
     <PackageReference Include="Manatee.Json" Version="12.2.0" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.2.4" />
     <PackageReference Include="Microsoft.Web.Xdt" Version="3.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Lib.Transform.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
