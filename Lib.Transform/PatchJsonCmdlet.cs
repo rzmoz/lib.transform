@@ -13,9 +13,9 @@ namespace Lib.Transform
         private const string _byFileParamSetName = "ByFile";
 
         [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true)]
-        [Alias("Target")]
+        [Alias("Json")]
         [ValidateNotNullOrEmpty]
-        public string TargetJsonPath { get; set; }
+        public string JsonFile { get; set; }
 
         [Parameter(Position = 1, Mandatory = true, ParameterSetName = _byValueParamSetName)]
         [ValidateNotNullOrEmpty]
@@ -24,41 +24,31 @@ namespace Lib.Transform
 
         [Parameter(Mandatory = true, ParameterSetName = _byFileParamSetName)]
         [ValidateNotNullOrEmpty]
-        [Alias("Source")]
-        public string JsonPatchPath { get; set; }
+        [Alias("Patch")]
+        public string PatchFile { get; set; }
 
         protected override void BeginProcessing()
         {
-            TargetJsonPath = RootPath(TargetJsonPath);
-            JsonPatchPath = RootPath(JsonPatchPath);
-            if (File.Exists(TargetJsonPath) == false)
-                throw new IOException($"Json file not found at: {TargetJsonPath}");
-            if (File.Exists(JsonPatchPath) == false)
-                throw new IOException($"JsonPatch file not found at: {JsonPatchPath}");
+            JsonFile = RootPath(JsonFile);
+            PatchFile = RootPath(PatchFile);
+            if (File.Exists(JsonFile) == false)
+                throw new IOException($"Json file not found at: {JsonFile}");
+            if (File.Exists(PatchFile) == false)
+                throw new IOException($"JsonPatch file not found at: {PatchFile}");
         }
 
         protected override void ProcessRecord()
         {
-            var targetJson = TargetJsonPath.ToFile().ReadAllText();
+            var json = JsonFile.ToFile().ReadAllText();
 
-            var jsonPatch = PatchValue;
-            if (ParameterSetName == _byFileParamSetName)
-                jsonPatch = JsonPatchPath.ToFile().ReadAllText();
-
+            var jsonPatch = ParameterSetName == _byValueParamSetName
+                ? PatchValue
+                : PatchFile.ToFile().ReadAllText();
 
             var patcher = new JsonPatchConfigFileTransform(Log);
-            var result = patcher.Transform(jsonPatch, targetJson);
-            if (result == null)
-            {
-
-            }
-            else
+            var result = patcher.Transform(jsonPatch, json);
+            if (result != null)
                 WriteObject(result);
-        }
-
-        protected override void EndProcessing()
-        {
-            base.EndProcessing();
         }
     }
 }

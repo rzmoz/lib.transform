@@ -10,35 +10,30 @@ namespace Lib.Transform
     public class PatchXmlCmdlet : LibTransformCmdlet
     {
         [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true)]
-        [Alias("Target")]
+        [Alias("Xml")]
         [ValidateNotNullOrEmpty]
-        public string TargetXmlPath { get; set; }
+        public string XmlFile { get; set; }
 
         [Parameter(Position = 1, Mandatory = true)]
         [ValidateNotNullOrEmpty]
-        [Alias("Source")]
-        public string XdtPath { get; set; }
+        [Alias("Xdt")]
+        public string XdtFile { get; set; }
 
         protected override void BeginProcessing()
         {
-            TargetXmlPath = RootPath(TargetXmlPath);
-            XdtPath = RootPath(XdtPath);
-            if (TargetXmlPath.ToFile().Exists() == false)
-                throw new IOException($"Xml file not found at: {TargetXmlPath.ToFile().FullName()}");
-            if (XdtPath.ToFile().Exists() == false)
-                throw new IOException($"Xdt file not found at: {XdtPath.ToFile().FullName()}");
+            XmlFile = RootPath(XmlFile);
+            XdtFile = RootPath(XdtFile);
+            if (File.Exists(XmlFile) == false)
+                throw new IOException($"Xml file not found at: {XmlFile}");
+            if (File.Exists(XdtFile) == false)
+                throw new IOException($"Xdt file not found at: {XdtFile}");
         }
 
         protected override void ProcessRecord()
         {
             var patcher = new XdtConfigFileTransform(Log);
-            patcher.Transform(XdtPath.ToFile(), TargetXmlPath.ToFile());
-            WriteObject(TargetXmlPath);
-        }
-
-        protected override void EndProcessing()
-        {
-            base.EndProcessing();
+            patcher.Transform(XdtFile.ToFile(), XmlFile.ToFile());
+            WriteObject(XmlFile);
         }
     }
 }
