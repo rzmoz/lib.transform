@@ -4,7 +4,7 @@ using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 using Microsoft.Web.XmlTransform;
 
-namespace Lib.Transform.Kernel
+namespace Lib.Transform
 {
     public class XdtConfigFileTransform : ConfigFileTransform
     {

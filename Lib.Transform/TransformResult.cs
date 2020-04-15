@@ -3,7 +3,7 @@ using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform.Kernel
+namespace Lib.Transform
 {
     public class TransformResult
     {
@@ -19,7 +19,7 @@ namespace Lib.Transform.Kernel
 
         public override string ToString()
         {
-            return $"{TransformFilePath.Name.Highlight()} => {ConfigFilePath.FullName().Highlight()}";
+            return $"{TransformFilePath.FullName().Highlight()} => {ConfigFilePath.Name.Highlight()}";
         }
     }
 }

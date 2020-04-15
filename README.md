@@ -1,1 +1,1 @@
-Transforms config files (.xml + .json) using xdt and jsonpatch
+Batch transformation of config files (.xml + .json) using xdt and jsonpatch

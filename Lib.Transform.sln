@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Transform", "Lib.Transform\Lib.Transform.csproj", "{FCF1CBB8-7A77-4379-B264-B5CC517EB1B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Transform", "Lib.Transform\Lib.Transform.csproj", "{CD18AD48-A88F-4794-A13D-8F2E8CCA54F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib.Transform.Tests", "Lib.Transform.Tests\Lib.Transform.Tests.csproj", "{F9AFA1B2-577F-4022-8CE6-570E2453E983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCF1CBB8-7A77-4379-B264-B5CC517EB1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCF1CBB8-7A77-4379-B264-B5CC517EB1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCF1CBB8-7A77-4379-B264-B5CC517EB1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCF1CBB8-7A77-4379-B264-B5CC517EB1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD18AD48-A88F-4794-A13D-8F2E8CCA54F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD18AD48-A88F-4794-A13D-8F2E8CCA54F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD18AD48-A88F-4794-A13D-8F2E8CCA54F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD18AD48-A88F-4794-A13D-8F2E8CCA54F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AFA1B2-577F-4022-8CE6-570E2453E983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AFA1B2-577F-4022-8CE6-570E2453E983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AFA1B2-577F-4022-8CE6-570E2453E983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AFA1B2-577F-4022-8CE6-570E2453E983}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

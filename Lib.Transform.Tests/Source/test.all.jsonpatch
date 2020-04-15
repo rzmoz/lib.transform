@@ -1,0 +1,12 @@
+﻿[
+  {
+    "op": "replace",
+    "path": "/hello",
+    "value": "All!"
+  },
+  {
+    "op": "replace",
+    "path": "/settingFrom",
+    "value": "test.all.jsonpatch"
+  }
+]

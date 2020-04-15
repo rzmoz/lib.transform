@@ -1,0 +1,12 @@
+﻿[
+  {
+    "op": "replace",
+    "path": "/hello",
+    "value": "Some.Environment!"
+  },
+  {
+    "op": "replace",
+    "path": "/settingFrom",
+    "value": "test.some.environment.jsonpatch"
+  }
+]

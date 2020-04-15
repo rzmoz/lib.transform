@@ -1,13 +1,13 @@
 ﻿using DotNet.Basics.Diagnostics;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform.Kernel
+namespace Lib.Transform
 {
     public abstract class ConfigFileTransform
     {
         protected ConfigFileTransform(ILogger log)
         {
-            Log = log ?? new NullLogger();
+            Log = log ?? Logger.NullLogger;
         }
 
         protected ILogger Log { get; }

@@ -3,7 +3,7 @@ using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 
-namespace Lib.Transform.Kernel
+namespace Lib.Transform
 {
     public class TransformOperation
     {
@@ -31,7 +31,7 @@ namespace Lib.Transform.Kernel
             return allExists;
         }
 
-        public TransformResult Transform(ILogger log)
+        public TransformResult Transform()
         {
             var result = new TransformResult
             {
@@ -42,7 +42,6 @@ namespace Lib.Transform.Kernel
             };
             try
             {
-                log?.Verbose($"Transforming {this.ToString()}");
                 result.Success = ConfigTransform.Transform(TransformFile, ConfigFile);
                 result.ConfigFileAfterTransform = ConfigFile.ReadAllText();
             }
