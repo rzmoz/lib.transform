@@ -1,12 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Xml.Linq;
 using DotNet.Basics.Diagnostics;
 using DotNet.Basics.IO;
 using DotNet.Basics.Sys;
 using FluentAssertions;
-using Manatee.Json;
 using Xunit.Abstractions;
 using Xunit;
 
@@ -70,8 +71,8 @@ namespace Lib.Transform.Tests
         {
             if (jsonPath.Exists() == false)
                 throw new FileNotFoundException(jsonPath.FullName());
-            var json = JsonValue.Parse(jsonPath.ReadAllText());
-            return json.Object[key].String;
+            var root = JsonDocument.Parse(jsonPath.ReadAllText()).RootElement;
+            return root.GetProperty(key).GetString();
         }
 
         private DirPath InitTestArtifacts()

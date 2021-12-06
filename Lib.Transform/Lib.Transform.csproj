@@ -20,9 +20,9 @@
 		<FileVersion>0.0.0</FileVersion>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="DotNet.Basics" Version="10.4.6" />
-		<PackageReference Include="DotNet.Basics.Cli" Version="10.4.2" />
-		<PackageReference Include="Manatee.Json" Version="12.3.1" />
-		<PackageReference Include="Microsoft.Web.Xdt" Version="3.0.0" />
+		<PackageReference Include="DotNet.Basics" Version="10.4.7" />
+		<PackageReference Include="DotNet.Basics.Cli" Version="10.4.3" />
+		<PackageReference Include="JsonPatch.Net" Version="1.1.2" />
+		<PackageReference Include="Microsoft.Web.Xdt" Version="3.1.0" />
 	</ItemGroup>
 </Project>
