@@ -17,7 +17,7 @@ transform  \<rootdir\> --env \<environments\>
 
 Aim: Apply all transformations in d:\myproject\output for all, azure and prod.
 
-**File structure:**
+**Folder structure:**
 
 - **myfile.config**
 - myfile.all.xdt
@@ -30,9 +30,9 @@ Aim: Apply all transformations in d:\myproject\output for all, azure and prod.
 - myfile.azure.jsonpatch
 - myfile.prod.jsonpatch
 
-**Exampe command:** transform d:\myproject\output --env all|azure|prod
+**Command:** transform d:\myproject\output --env all|azure|prod
 
-**Outcome:**
+**Application order:**
 
 1. first **myfile.all.xdt** is applied to **myfile.config**
 2. then **myfile.all.jsonpatch** is applied to **myfile.json**
